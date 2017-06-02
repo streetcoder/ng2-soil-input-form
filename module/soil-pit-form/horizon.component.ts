@@ -14,7 +14,154 @@ import { Effervesence } from './soil-data-defs/effervesence.enum';
 @Component({
   moduleId: module.id,
   selector: 'horizon',
-  templateUrl: 'horizon.template.html',
+  template: `
+      <div [formGroup]="horizonForm">
+
+          <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-2">
+              <label>layer</label>
+              <select
+                      class="form-control"
+                      formControlName="layer">
+                  <option selected>I</option>
+                  <option>II</option>
+                  <option>III</option>
+              </select>
+          </div>
+
+          <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-2">
+              <label>designation</label>
+              <select
+                      class="form-control"
+                      formControlName="designation">
+                  <option *ngFor="let d of designation" [value]="d">{{d}}</option>
+              </select>
+          </div>
+
+          <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-2">
+              <label>modifiers</label>
+              <input class="form-control" formControlName="modifiers" type="text">
+          </div>
+
+          <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-2">
+              <label>start depth</label>
+              <input type="number" class="form-control" formControlName="start">
+          </div>
+
+          <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-2">
+              <label>end depth</label>
+              <input type="number" class="form-control" formControlName="end">
+          </div>
+
+          <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-2">
+              <label>lower boundary </label>
+              <select
+                      class="form-control"
+                      formControlName="lowerboundary">
+                  <option *ngFor="let l of lowerboundary" [value]="l">{{l}}</option>
+              </select>
+          </div>
+
+          <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-2">
+              <label>c.frag angularity</label>
+              <select
+                      class="form-control"
+                      formControlName="angularity">
+                  <option *ngFor="let a of coarseFragmentAngularity" [value]="a">{{a}}</option>
+              </select>
+          </div>
+
+          <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-2">
+              <label>c.frag percentage</label>
+              <input type="number" class="form-control" formControlName="cfpercent">
+          </div>
+
+          <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-2">
+              <label>texture class</label>
+              <select
+                      class="form-control"
+                      formControlName="texture">
+                  <option *ngFor="let t of texture" [value]="t">{{t}}</option>
+              </select>
+          </div>
+
+          <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-2">
+              <label>hue</label>
+              <select
+                      class="form-control"
+                      formControlName="hue">
+                  <option *ngFor="let h of hue" [value]="h">{{h}}</option>
+              </select>
+          </div>
+
+          <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-2">
+              <label>value</label>
+              <select
+                      class="form-control"
+                      formControlName="value">
+                  <option *ngFor="let v of value" [value]="v">{{v}}</option>
+              </select>
+          </div>
+
+          <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-2">
+              <label>chroma</label>
+              <select
+                      class="form-control"
+                      formControlName="chroma">
+                  <option *ngFor="let c of chroma" [value]="c">{{c}}</option>
+              </select>
+          </div>
+
+          <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-2">
+              <label>mottles</label>
+              <select
+                      class="form-control"
+                      formControlName="mottles">
+                  <option>None</option>
+                  <option>Faint</option>
+                  <option>Distinct</option>
+              </select>
+          </div>
+
+          <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-2">
+              <label>kind</label>
+              <select
+                      class="form-control"
+                      formControlName="structureKind">
+                  <option *ngFor="let c of structureKind" [value]="c">{{c}}</option>
+              </select>
+          </div>
+
+          <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-2">
+              <label>class</label>
+              <select
+                      class="form-control"
+                      formControlName="structureClass">
+                  <option *ngFor="let c of structureClass" [value]="c">{{c}}</option>
+              </select>
+          </div>
+
+          <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-2">
+              <label>grade</label>
+              <select
+                      class="form-control"
+                      formControlName="structureGrade">
+                  <option *ngFor="let c of structureGrade" [value]="c">{{c}}</option>
+              </select>
+          </div>
+
+          <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-2">
+              <label>effervesence</label>
+              <select
+                      class="form-control"
+                      formControlName="effervesence">
+                  <option *ngFor="let c of effervesence" [value]="c">{{c}}</option>
+              </select>
+          </div>
+
+      </div>
+
+
+  `
 })
 export class HorizonComponent {
   @Input('group')

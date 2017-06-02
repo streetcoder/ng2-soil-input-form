@@ -17,7 +17,200 @@ import {Stoniness} from './soil-data-defs/stoniness-enum';
 @Component({
   moduleId: module.id,
   selector: 'soil-pit-form',
-  templateUrl: 'soil-pit.template.html',
+  template: `<div class="container">
+      <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
+
+          <div class="row">
+              <!--title-->
+              <div class="margin-20 col-xs-12">
+                  <h2>Add soil pit</h2>
+              </div>
+              <!--name-->
+              <div class="form-group col-xs-12 col-sm-12 col-md-4 col-lg-6">
+                  <label>Name/ID</label>
+                  <input type="text" class="form-control" formControlName="name">
+              </div>
+
+              <div class="form-group col-xs-12 col-sm-4 col-md-3 col-lg-2">
+                  <label>Lat</label>
+                  <input type="text" class="form-control" formControlName="lat">
+              </div>
+
+              <div class="form-group col-xs-12 col-sm-4 col-md-3 col-lg-2">
+                  <label>Long</label>
+                  <input type="text" class="form-control" formControlName="long">
+              </div>
+
+              <div class="form-group col-xs-12 col-sm-4 col-md-2 col-lg-2">
+                  <label>Location</label>
+                  <button class="btn btn-block" (click)="setCurrentLocation()">{{ locationButtonText }}</button>
+              </div>
+
+          </div>
+
+          <div class="row">
+              <div class="col-xs-12">
+                  <!--horizons-->
+                  <div formArrayName="horizons">
+                      <div *ngFor="let address of myForm.controls.horizons.controls; let i=index" class="panel panel-default">
+                          <div class="panel-heading">
+                              <span>Horizon {{i + 1}}</span>
+                              <span class="glyphicon glyphicon-remove pull-right"
+                                    *ngIf="myForm.controls.horizons.controls.length > 1"
+                                    (click)="removeAddress(i)"></span>
+                          </div>
+                          <div class="panel-body" [formGroupName]="i">
+                              <horizon [group]="myForm.controls.horizons.controls[i]"></horizon>
+                          </div>
+                      </div>
+                  </div>
+                  <!--add horizon-->
+                  <div class="margin-20">
+                      <a (click)="addHorizon()" style="cursor: default">
+                          Add another horizon +
+                      </a>
+                  </div>
+                  <h3>Site description</h3><hr>
+              </div>
+          </div>
+
+
+
+
+          <div class="row">
+              <!--parent material-->
+              <div class="form-group col-xs-12 col-md-6">
+                  <label>parent material</label>
+                  <select
+                          class="form-control"
+                          formControlName="parentMaterial">
+                      <option *ngFor="let c of parentMaterial" [value]="c">{{c}}</option>
+                  </select>
+              </div>
+              <!--drainage-->
+              <div class="form-group col-xs-12 col-md-6">
+                  <label>drainage</label>
+                  <select
+                          class="form-control"
+                          formControlName="drainage">
+                      <option *ngFor="let c of drainage" [value]="c">{{c}}</option>
+                  </select>
+              </div>
+
+              <div class="form-group col-xs-12 col-md-6">
+                  <label>aspect</label>
+                  <select
+                          class="form-control"
+                          formControlName="aspect">
+                      <option *ngFor="let c of aspect" [value]="c">{{c}}</option>
+                  </select>
+              </div>
+
+              <div class="form-group col-xs-12 col-md-6">
+                  <label>surface expression</label>
+                  <select
+                          class="form-control"
+                          formControlName="surfex">
+                      <option *ngFor="let c of surfex" [value]="c">{{c}}</option>
+                  </select>
+              </div>
+
+              <div class="form-group col-xs-12 col-md-6">
+                  <label>slope position</label>
+                  <select
+                          class="form-control"
+                          formControlName="slopeposition">
+                      <option *ngFor="let c of slopepos" [value]="c">{{c}}</option>
+                  </select>
+              </div>
+
+              <div class="form-group col-xs-12 col-md-6">
+                  <label>slope class</label>
+                  <select
+                          class="form-control"
+                          formControlName="slopeclass">
+                      <option *ngFor="let c of slopeclass" [value]="c">{{c}}</option>
+                  </select>
+              </div>
+
+              <div class="form-group col-xs-12 col-md-6">
+                  <label>slope length</label>
+                  <select
+                          class="form-control"
+                          formControlName="slopelength">
+                      <option *ngFor="let c of slopelen" [value]="c">{{c}}</option>
+                  </select>
+              </div>
+
+              <div class="form-group col-xs-12 col-md-6">
+                  <label>concavity</label>
+                  <select
+                          class="form-control"
+                          formControlName="concavity">
+                      <option *ngFor="let c of concavity" [value]="c">{{c}}</option>
+                  </select>
+              </div>
+
+              <div class="form-group col-xs-12 col-md-6">
+                  <label>land use</label>
+                  <select
+                          class="form-control"
+                          formControlName="landuse">
+                      <option *ngFor="let c of landuse" [value]="c">{{c}}</option>
+                  </select>
+              </div>
+
+              <div class="form-group col-xs-12 col-md-6">
+                  <label>stoniness</label>
+                  <select
+                          class="form-control"
+                          formControlName="stoniness">
+                      <option *ngFor="let c of stoniness" [value]="c">{{c}}</option>
+                  </select>
+              </div>
+
+              <!--landscape description-->
+              <div class="form-group col-xs-12 col-md-6">
+                  <label>landscape description</label>
+                  <textarea class="form-control" formControlName="landscapeDesc" rows="4"></textarea>
+              </div>
+              <!--notes-->
+              <div class="form-group col-xs-12 col-md-6">
+                  <label>notes</label>
+                  <textarea class="form-control" formControlName="notes" rows="4"></textarea>
+              </div>
+
+              <div class="form-group col-xs-12 col-md-6">
+                  <label>add photo</label>
+                  <input class="form-control file" type="file">
+              </div>
+
+          </div>
+
+          <div class="row">
+              <div class="col-xs-12">
+                  <!--submit-->
+                  <div class="margin-20">
+                      <button type="submit" class="btn btn-primary pull-right" [disabled]="!myForm.valid">Submit</button>
+                  </div>
+                  <div class="clearfix"></div>
+                  <!--diagnostic-->
+                  <div class="margin-20">
+                      <div>myForm details:-</div>
+                      <pre>Is myForm valid?: <br>{{myForm.valid | json}}</pre>
+                      <pre>form value: <br>{{myForm.value | json}}</pre>
+                  </div>
+              </div>
+          </div>
+
+      </form>
+  </div>
+
+
+  <!--<small *ngIf="!myForm.controls.name.valid" class="text-danger">-->
+  <!--Name is required (minimum 5 characters).-->
+  <!--</small>-->
+  `
 })
 export class SoilPitFormComponent implements OnInit {
 
