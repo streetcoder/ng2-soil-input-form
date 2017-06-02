@@ -12,7 +12,6 @@ import { StructureGrade } from './soil-data-defs/structure-grade.enum';
 import { Effervesence } from './soil-data-defs/effervesence.enum';
 
 @Component({
-  moduleId: module.id,
   selector: 'horizon',
   templateUrl: 'horizon.template.html',
 })
