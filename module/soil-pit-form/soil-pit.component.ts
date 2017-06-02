@@ -15,8 +15,9 @@ import {LandUse} from './soil-data-defs/land-use.enum';
 import {Stoniness} from './soil-data-defs/stoniness-enum';
 
 @Component({
+  moduleId: module.id,
   selector: 'soil-pit-form',
-  templateUrl: './module/soil-pit-form/soil-pit.template.html',
+  templateUrl: 'soil-pit.template.html',
 })
 export class SoilPitFormComponent implements OnInit {
 
