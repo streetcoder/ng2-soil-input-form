@@ -1,0 +1,19 @@
+export enum LowercaseDesignation {
+  b,
+  c,
+  ca,
+  cc,
+  co,
+  e,
+  f,
+  g,
+  h,
+  j,
+  k,
+  m,
+  n,
+  p,
+  s,
+  sa,
+  t
+}
