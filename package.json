@@ -1,6 +1,6 @@
 {
   "name": "ng2-soil-input-form",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Add a soil input form to Angular2 projects.",
   "main": "index.js",
   "scripts": {
