@@ -1,6 +1,6 @@
 # Angular 2 soil input form
 
-![screenshot](http://imgur.com/a/yu7eJ)
+![screenshot](screenshot.png)
 
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](http://opensource.org/licenses/MIT)
 
