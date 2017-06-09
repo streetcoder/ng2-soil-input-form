@@ -1,6 +1,5 @@
 export enum SurfaceExpression {
     'Hummocky',
-    'Disected',
     'Level',
     'Inclined',
     'Rolling',

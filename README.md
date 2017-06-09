@@ -36,6 +36,9 @@ export class YourComponent {}
 
 **handling data**
 
-It's really bad right now. Ultimately I expect the the component will emit some kind of event that will contain the form
-information, which can they be handled by the parent component. Then it can be saved or whatever. But that is not done
-at the moment. Someday (Sunday).
+The form will emit a soilFormSubmittedEmitter event upon submission. 
+
+```<soil-pit-form (soilFormSubmittedEmitter)="yourHandlingFunctionHere($event)"></soil-pit-form>```
+
+In the near future I expect to to provide an API that will provide CRUD operations on soil pit data if you don't
+want to store it yourself. 

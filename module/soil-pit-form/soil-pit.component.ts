@@ -13,6 +13,7 @@ import {SlopeLength} from './soil-data-defs/slope-length.enum';
 import {Concavity} from './soil-data-defs/concavity.enum';
 import {LandUse} from './soil-data-defs/land-use.enum';
 import {Stoniness} from './soil-data-defs/stoniness-enum';
+import {SurfexMod} from "./soil-data-defs/surfex-mod.enum";
 
 @Component({
   moduleId: module.id,
@@ -106,12 +107,20 @@ import {Stoniness} from './soil-data-defs/stoniness-enum';
                   </select>
               </div>
 
-              <div class="form-group col-xs-12 col-md-6">
+              <div class="form-group col-xs-6 col-md-3">
                   <label>surface expression</label>
                   <select
                           class="form-control"
                           formControlName="surfex">
                       <option *ngFor="let c of surfex" [value]="c">{{c}}</option>
+                  </select>
+              </div>
+              
+              <div class="form-group col-xs-6 col-md-3">
+                  <label>surfex modifier</label>
+                  <select class="form-control"
+                          formControlName="surfexmod">
+                      <option *ngFor="let s of surfexmod" [value]="s">{{s}}</option>
                   </select>
               </div>
 
@@ -227,6 +236,7 @@ export class SoilPitFormComponent implements OnInit {
   private concavity = EnumValues.getNames(Concavity);
   private landuse = EnumValues.getNames(LandUse);
   private stoniness = EnumValues.getNames(Stoniness);
+  private surfexmod =EnumValues.getNames(SurfexMod);
 
   private layer = ['I', 'II'];
 
@@ -248,6 +258,7 @@ export class SoilPitFormComponent implements OnInit {
         drainage: '',
         aspect: '',
         surfex: '',
+        surfexmod: '',
         slopeposition: '',
         slopeclass: '',
         slopelength: '',
