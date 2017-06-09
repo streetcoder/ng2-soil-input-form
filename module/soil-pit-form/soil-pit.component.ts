@@ -17,7 +17,7 @@ import {Stoniness} from './soil-data-defs/stoniness-enum';
 @Component({
   moduleId: module.id,
   selector: 'soil-pit-form',
-  template: `<div class="container">
+  template: `<div class="container-fluid">
       <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
 
           <div class="row">
