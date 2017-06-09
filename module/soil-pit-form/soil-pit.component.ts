@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { FormGroup, FormArray, FormBuilder, Validators } from '@angular/forms';
 import { Customer } from './customer.interface';
 import { CoarseFragType } from './soil-data-defs/coarse-frag.enum';
@@ -217,6 +217,8 @@ export class SoilPitFormComponent implements OnInit {
   private parentMaterial = EnumValues.getNames(ParentMaterial);
   private drainage = EnumValues.getNames(Drainage);
 
+  @Output() soilFormSubmittedEmitter = new EventEmitter();
+
   private aspect = EnumValues.getNames(Aspect);
   private surfex = EnumValues.getNames(SurfaceExpression);
   private slopepos = EnumValues.getNames(SlopePosition);
@@ -322,8 +324,8 @@ export class SoilPitFormComponent implements OnInit {
   }
 
   save(model: Customer) {
-    // call API to save
-    // ...
     console.log(model);
+
+    this.soilFormSubmittedEmitter.emit(model);
   }
 }
