@@ -80,11 +80,30 @@ import {SurfexMod} from "./soil-data-defs/surfex-mod.enum";
 
           <div class="row">
               <!--parent material-->
-              <div class="form-group col-xs-12 col-md-6">
-                  <label>parent material</label>
+              
+              <div class="form-group col-xs-12 col-sm-4 ">
+                  <label>parent material 1</label>
                   <select
                           class="form-control"
-                          formControlName="parentMaterial">
+                          formControlName="parentMaterial1">
+                      <option *ngFor="let c of parentMaterial" [value]="c">{{c}}</option>
+                  </select>
+              </div>
+
+              <div class="form-group col-xs-12 col-sm-4 ">
+                  <label>parent material 2</label>
+                  <select
+                          class="form-control"
+                          formControlName="parentMaterial2">
+                      <option *ngFor="let c of parentMaterial" [value]="c">{{c}}</option>
+                  </select>
+              </div>
+
+              <div class="form-group col-xs-12 col-sm-4 ">
+                  <label>parent material 3</label>
+                  <select
+                          class="form-control"
+                          formControlName="parentMaterial3">
                       <option *ngFor="let c of parentMaterial" [value]="c">{{c}}</option>
                   </select>
               </div>
@@ -263,7 +282,9 @@ export class SoilPitFormComponent implements OnInit {
         horizons: this._fb.array([]),
         landscapeDesc: '',
         notes: '',
-        parentMaterial: '',
+        parentMaterial1: '',
+        parentMaterial2: '',
+        parentMaterial3: '',
         drainage: '',
         aspect: '',
         surfex1: '',
