@@ -191,10 +191,10 @@ import {SurfexMod} from "./soil-data-defs/surfex-mod.enum";
                   <textarea class="form-control" formControlName="notes" rows="4"></textarea>
               </div>
 
-              <div class="form-group col-xs-12 col-md-6">
-                  <label>add photo</label>
-                  <input class="form-control file" type="file">
-              </div>
+              <!--<div class="form-group col-xs-12 col-md-6">-->
+                  <!--<label>add photo</label>-->
+                  <!--<input class="form-control file" type="file">-->
+              <!--</div>-->
 
           </div>
 
@@ -205,12 +205,13 @@ import {SurfexMod} from "./soil-data-defs/surfex-mod.enum";
                       <button type="submit" class="btn btn-primary pull-right" [disabled]="!myForm.valid">Submit</button>
                   </div>
                   <div class="clearfix"></div>
+                  
                   <!--diagnostic-->
-                  <div class="margin-20">
-                      <div>myForm details:-</div>
-                      <pre>Is myForm valid?: <br>{{myForm.valid | json}}</pre>
-                      <pre>form value: <br>{{myForm.value | json}}</pre>
-                  </div>
+                  <!--<div class="margin-20">-->
+                      <!--<div>myForm details:-</div>-->
+                      <!--<pre>Is myForm valid?: <br>{{myForm.valid | json}}</pre>-->
+                      <!--<pre>form value: <br>{{myForm.value | json}}</pre>-->
+                  <!--</div>-->
               </div>
           </div>
 
@@ -339,5 +340,7 @@ export class SoilPitFormComponent implements OnInit {
     console.log(model);
 
     this.soilFormSubmittedEmitter.emit(model);
+
+    this.myForm.reset();
   }
 }
