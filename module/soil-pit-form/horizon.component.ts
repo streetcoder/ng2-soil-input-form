@@ -10,6 +10,7 @@ import { StructureKind } from './soil-data-defs/structure-kind.enum';
 import { StructureClass } from './soil-data-defs/structure-class.enum';
 import { StructureGrade } from './soil-data-defs/structure-grade.enum';
 import { Effervesence } from './soil-data-defs/effervesence.enum';
+import {ParentMaterial} from "./soil-data-defs/parent-material.enum";
 
 @Component({
   moduleId: module.id,
@@ -158,6 +159,15 @@ import { Effervesence } from './soil-data-defs/effervesence.enum';
               </select>
           </div>
 
+          <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-2">
+              <label>parent material</label>
+              <select
+                      class="form-control"
+                      formControlName="parentMaterial">
+                  <option *ngFor="let c of parentMaterial" [value]="c">{{c}}</option>
+              </select>
+          </div>
+
       </div>
 
 
@@ -181,4 +191,5 @@ export class HorizonComponent {
   private structureClass = EnumValues.getNames(StructureClass);
   private structureGrade = EnumValues.getNames(StructureGrade);
   private effervesence = EnumValues.getNames(Effervesence);
+  private parentMaterial = EnumValues.getNames(ParentMaterial);
 }
