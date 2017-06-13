@@ -5,5 +5,6 @@ export enum ParentMaterial {
   'Eolian',
   'Colluvial',
   'Marine',
-  'Lacustrine'
+  'Lacustrine',
+  'Organic'
 }

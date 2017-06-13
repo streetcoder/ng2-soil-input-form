@@ -108,15 +108,24 @@ import {SurfexMod} from "./soil-data-defs/surfex-mod.enum";
               </div>
 
               <div class="form-group col-xs-6 col-md-3">
-                  <label>surface expression</label>
+                  <label>surface expression 1</label>
                   <select
                           class="form-control"
-                          formControlName="surfex">
+                          formControlName="surfex1">
+                      <option *ngFor="let c of surfex" [value]="c">{{c}}</option>
+                  </select>
+              </div>
+
+              <div class="form-group col-xs-6 col-md-3">
+                  <label>surface expression 2</label>
+                  <select
+                          class="form-control"
+                          formControlName="surfex2">
                       <option *ngFor="let c of surfex" [value]="c">{{c}}</option>
                   </select>
               </div>
               
-              <div class="form-group col-xs-6 col-md-3">
+              <div class="form-group col-xs-12 col-md-6">
                   <label>surfex modifier</label>
                   <select class="form-control"
                           formControlName="surfexmod">
@@ -257,7 +266,8 @@ export class SoilPitFormComponent implements OnInit {
         parentMaterial: '',
         drainage: '',
         aspect: '',
-        surfex: '',
+        surfex1: '',
+        surfex2: '',
         surfexmod: '',
         slopeposition: '',
         slopeclass: '',

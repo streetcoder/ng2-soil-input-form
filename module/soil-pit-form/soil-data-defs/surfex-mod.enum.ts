@@ -1,4 +1,5 @@
 export enum SurfexMod {
-    Disected,
-    Gullied
+    Dissected,
+    Gullied,
+    Channeled
 }

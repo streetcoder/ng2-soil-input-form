@@ -3,7 +3,7 @@ export enum SurfaceExpression {
     'Level',
     'Inclined',
     'Rolling',
-    'Rideged',
+    'Ridged',
     'Steep',
     'Terraced',
     'Undulating',
