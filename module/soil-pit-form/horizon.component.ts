@@ -179,8 +179,8 @@ export class HorizonComponent {
 
   private landform = '';
   private notes = '';
-  private value = [1, 2, 3, 4, 5, 6];
-  private chroma = [1, 2, 3, 4, 5, 6];
+  private value = [1, 2, 2.5, 3, 4, 5, 6, 7, 8];
+  private chroma = [1, 2, 3, 4, 5, 6, 7, 8];
 
   private hue = EnumValues.getNames(Hue);
   private coarseFragmentAngularity = EnumValues.getNames(CoarseFragType);
