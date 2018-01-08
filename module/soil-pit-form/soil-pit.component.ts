@@ -16,7 +16,7 @@ import {Stoniness} from './soil-data-defs/stoniness-enum';
 import {SurfexMod} from "./soil-data-defs/surfex-mod.enum";
 
 @Component({
-  moduleId: module.id,
+  moduleId: module.id.toString(),
   selector: 'soil-pit-form',
   template: `<div class="container-fluid">
       <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
