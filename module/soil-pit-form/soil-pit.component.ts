@@ -319,7 +319,7 @@ export class SoilPitFormComponent implements OnInit {
     control.removeAt(i);
   }
 
-    setCurrentLocation(event) {
+    setCurrentLocation(event?) {
       if (event){
           event.preventDefault();
       }
