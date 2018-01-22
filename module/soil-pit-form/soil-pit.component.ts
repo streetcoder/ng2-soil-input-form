@@ -44,7 +44,7 @@ import {SurfexMod} from "./soil-data-defs/surfex-mod.enum";
 
               <div class="form-group col-xs-12 col-sm-4 col-md-2 col-lg-2">
                   <label>Location</label>
-                  <button class="btn btn-block" (click)="setCurrentLocation()">{{ locationButtonText }}</button>
+                  <button class="btn btn-block btn-default" (click)="setCurrentLocation()">{{ locationButtonText }}</button>
               </div>
 
           </div>

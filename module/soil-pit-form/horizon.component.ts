@@ -13,7 +13,7 @@ import { Effervesence } from './soil-data-defs/effervesence.enum';
 import {ParentMaterial} from "./soil-data-defs/parent-material.enum";
 
 @Component({
-  moduleId: module.id,
+  moduleId: module.id.toString(),
   selector: 'horizon',
   template: `
       <div [formGroup]="horizonForm">
