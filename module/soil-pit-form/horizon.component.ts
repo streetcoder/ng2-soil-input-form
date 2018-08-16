@@ -120,6 +120,7 @@ import {ParentMaterial} from "./soil-data-defs/parent-material.enum";
                   <option>None</option>
                   <option>Faint</option>
                   <option>Distinct</option>
+                  <option>Prominent</option>
               </select>
           </div>
 
