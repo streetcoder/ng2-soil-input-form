@@ -81,6 +81,12 @@ import {SurfexMod} from "./soil-data-defs/surfex-mod.enum";
           <div class="row">
               <!--parent material-->
               
+              <!--soil classification-->
+              <div class="form-group col-xs-12 col-md-6">
+                  <label>Soil Classification (s_grp.g_grp)</label>
+                  <input class="form-control" formControlName="soilClassification">
+              </div>
+
               <!--drainage-->
               <div class="form-group col-xs-12 col-md-6">
                   <label>drainage</label>
@@ -266,7 +272,8 @@ export class SoilPitFormComponent implements OnInit {
         slopelength: '',
         concavity: '',
         landuse: '',
-        stoniness: ''
+        stoniness: '',
+        soilClassification:''
     });
 
     this.addHorizon();
