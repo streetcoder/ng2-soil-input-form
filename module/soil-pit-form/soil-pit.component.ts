@@ -84,7 +84,7 @@ import {SurfexMod} from "./soil-data-defs/surfex-mod.enum";
               <!--soil classification-->
               <div class="form-group col-xs-12 col-md-6">
                   <label>Soil Classification (s_grp.g_grp)</label>
-                  <input class="form-control" formControlName="soilClassification">
+                  <input type="text" class="form-control" formControlName="soilClassification" [value]="soilClassification">
               </div>
 
               <!--drainage-->
