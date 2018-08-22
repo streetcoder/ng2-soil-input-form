@@ -81,10 +81,32 @@ import {SurfexMod} from "./soil-data-defs/surfex-mod.enum";
           <div class="row">
               <!--parent material-->
               
-              <!--soil classification-->
+              <!--Order-->
               <div class="form-group col-xs-12 col-md-6">
-                  <label>Soil Classification (s_grp.g_grp)</label>
-                  <input type="text" class="form-control" maxlength="10" formControlName="soilClassification">
+              <label>Order</label>
+              <select
+                        class="form-control"
+                        formControlName="pitOder">
+                    <option *ngFor="let c of pitOder" [value]="c.value">{{c.name}}</option>
+                </select>
+              </div>
+
+              <div class="form-group col-xs-12 col-md-6">
+              <label>G_Group</label>
+              <select
+                        class="form-control"
+                        formControlName="ggroup">
+                    <option *ngFor="let c of ggroup" [value]="c.value">{{c.name}}</option>
+                </select>
+              </div>
+
+              <div class="form-group col-xs-12 col-md-6">
+              <label>S_Group</label>
+              <select
+                        class="form-control"
+                        formControlName="sgroup">
+                    <option *ngFor="let c of sgroup" [value]="c.value">{{c.name}}</option>
+                </select>
               </div>
 
               <div class="form-group col-xs-12 col-md-6">
@@ -263,6 +285,81 @@ export class SoilPitFormComponent implements OnInit {
   public myForm: FormGroup;
 
   constructor(private _fb: FormBuilder) { }
+
+  pitOder = [
+    {name: 'BR (Brunisolic)',         selected: false, value: 'BR'},
+    {name: 'CH (Chernozemic)',         selected: false, value: 'CH'},
+    {name: 'CY (Cryosolic)',         selected: false, value: 'CY'},
+    {name: 'GL (Gleysolic)',         selected: false, value: 'GL'},
+    {name: 'LU (Luvisolic)',           selected: false, value: 'LU'},
+    {name: 'OR (Organic)',           selected: false, value: 'OR'},
+    {name: 'PZ (Podzolic)',           selected: false, value: 'PZ'},
+    {name: 'RG (Regosolic)',           selected: false, value: 'RG'},
+    {name: 'SZ (Solonetzic)',           selected: false, value: 'SZ'},
+    {name: 'VE (Vertisolic)',           selected: false, value: 'VE'},
+    {name: '- (N/A)',           selected: false, value: '-'}
+ ];
+
+ ggroup = [
+    {name: 'BC	Brown Chernozem',         selected: false, value: 'BC'},
+    {name: 'BLC	Black Chernozem',         selected: false, value: 'CH'},
+    {name: 'DBC	Dark Brown Chernozem',         selected: false, value: 'DBC'},
+    {name: 'DGC	Dark Gray Chernozem',         selected: false, value: 'DGC'},
+    {name: 'EB	Eutric Brunisol',           selected: false, value: 'EB'},
+    {name: 'F	Fibrisol',           selected: false, value: 'F'},
+    {name: 'G	Gleysol',           selected: false, value: 'G'},
+    {name: 'GL	Gray Luvisol',           selected: false, value: 'GL'},
+    {name: 'H	Humisol',           selected: false, value: 'H'},
+    {name: 'HG	Humic Gleysol',           selected: false, value: 'HG'},
+    {name: 'HR	Humic Regosol',           selected: false, value: 'HR'},
+    {name: 'LG	Luvic Gleysol',           selected: false, value: 'LG'},
+    {name: 'M	Mesisol',           selected: false, value: 'M'},
+    {name: 'R	Regosol',           selected: false, value: 'R'},
+    {name: 'SO	Solod',           selected: false, value: 'SO'},
+    {name: 'SS	Solodized Solonetz',           selected: false, value: 'SS'},
+    {name: 'SZ	Solonetz',           selected: false, value: 'SZ'},
+    {name: 'V	Vertisol',           selected: false, value: 'V'},
+    {name: '-	NULL',           selected: false, value: '-'},
+    {name: 'GBL	Gray Brown Luvisol',           selected: false, value: 'GBL'},
+    {name: 'FO	Folisol',           selected: false, value: 'FO'}
+ ];
+
+ sgroup = [
+    {name: 'B	Brown',         selected: false, value: 'B'},
+    {name: 'BL	Black',         selected: false, value: 'BL'},
+    {name: 'BR	Brunisolic',         selected: false, value: 'BR'},
+    {name: 'CA	Calcareous',         selected: false, value: 'CA'},
+    {name: 'CU	Cumulic ',           selected: false, value: 'CU'},
+    {name: 'D	Dark',           selected: false, value: 'D'},
+    {name: 'DB	Dark Brown',           selected: false, value: 'DB'},
+    {name: 'DG	Dark Gray',           selected: false, value: 'DG'},
+    {name: 'E	Eluviated',           selected: false, value: 'E'},
+    {name: 'FI	Fibric',           selected: false, value: 'FI'},
+    {name: 'G	Gray',           selected: false, value: 'G'},
+    {name: 'GL	Gleyed',           selected: false, value: 'GL'},
+    {name: 'GLB	Gleyed Brown',           selected: false, value: 'GLB'},
+    {name: 'GLBL Gleyed Black',           selected: false, value: 'GLBL'},
+    {name: 'GLC	Gleysolic',           selected: false, value: 'GLC'},
+    {name: 'GLCA Gleyed Calcareous',           selected: false, value: 'GLCA'},
+    {name: 'GLCU Gleyed Cumulic',           selected: false, value: 'GLCU'},
+    {name: 'GLD	Gleyed',           selected: false, value: 'GLD'},
+    {name: 'GLDB Gleyed Dark Brown',           selected: false, value: 'GLDB'},
+    {name: 'GLDG Gleyed Dark Gray',           selected: false, value: 'GLDG'},
+    {name: 'GLE	Gleyed Eluviated',           selected: false, value: 'GLE'},
+    {name: 'GLR	Gleyed Rego',           selected: false, value: 'GLR'},
+    {name: 'GLSZ Gleyed Solonetzic',           selected: false, value: 'GLSZ'},
+    {name: 'HU Humic',           selected: false, value: 'HU'},
+    {name: 'HY	Hydric',           selected: false, value: 'HY'},
+    {name: 'LM	Limnic',           selected: false, value: 'LM'},
+    {name: 'ME	Mesic',           selected: false, value: 'ME'},
+    {name: 'O Orthic',           selected: false, value: 'O'},
+    {name: 'R Rego',           selected: false, value: 'R'},
+    {name: 'SZ	Solonetzic',           selected: false, value: 'SZ'},
+    {name: 'T	Terric',           selected: false, value: 'T'},
+    {name: 'TFI	Terric Fibric',           selected: false, value: 'TFI'},
+    {name: 'TY	Typic',           selected: false, value: 'TY'},
+    {name: '-	NULL',           selected: false, value: '-'},
+ ];
 
   ngOnInit() {
     this.myForm = this._fb.group({
