@@ -86,8 +86,8 @@ import {SurfexMod} from "./soil-data-defs/surfex-mod.enum";
               <label>Order</label>
               <select
                         class="form-control"
-                        formControlName="pitOder">
-                    <option *ngFor="let c of pitOder" [value]="c.value">{{c.name}}</option>
+                        formControlName="pitorder">
+                    <option *ngFor="let c of pitorder" [value]="c.value">{{c.name}}</option>
                 </select>
               </div>
 
@@ -286,7 +286,7 @@ export class SoilPitFormComponent implements OnInit {
 
   constructor(private _fb: FormBuilder) { }
 
-  pitOder = [
+  pitorder = [
     {name: 'BR (Brunisolic)',         selected: false, value: 'BR'},
     {name: 'CH (Chernozemic)',         selected: false, value: 'CH'},
     {name: 'CY (Cryosolic)',         selected: false, value: 'CY'},
@@ -380,8 +380,11 @@ export class SoilPitFormComponent implements OnInit {
         concavity: '',
         landuse: '',
         stoniness: '',
-        soilClassification:'',
-        edition: 3
+        // soilClassification:'',
+        edition: 3,
+        pitorder:'',
+        ggroup:'',
+        sgroup:''
     });
 
     this.addHorizon();
