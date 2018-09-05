@@ -169,6 +169,11 @@ import {ParentMaterial} from "./soil-data-defs/parent-material.enum";
               </select>
           </div>
 
+          <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <label>comments</label>
+              <textarea rows="3" formControlName="comments" class="form-control"></textarea>
+          </div>
+
       </div>
 
 
