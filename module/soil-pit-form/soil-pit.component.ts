@@ -61,7 +61,8 @@ import {SurfexMod} from "./soil-data-defs/surfex-mod.enum";
                               
                               <span class="fas fa-times pull-right"
                                     *ngIf="myForm.controls.horizons.controls.length > 1"
-                                    (click)="removeAddress(i)"></span>
+                                    (click)="removeAddress(i)">
+                              </span>
                           </div>
                           <div class="panel-body" [formGroupName]="i">
                               <horizon [group]="myForm.controls.horizons.controls[i]"></horizon>
