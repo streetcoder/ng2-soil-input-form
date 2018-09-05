@@ -59,10 +59,9 @@ import {SurfexMod} from "./soil-data-defs/surfex-mod.enum";
                           <div class="panel-heading">
                               <span>Horizon {{i + 1}}</span>
                               
-                              <span class="fas fa-times pull-right"
+                              <span class="glyphicon glyphicon-remove pull-right"
                                     *ngIf="myForm.controls.horizons.controls.length > 1"
-                                    (click)="removeAddress(i)">
-                              </span>
+                                    (click)="removeAddress(i)"></span>
                           </div>
                           <div class="panel-body" [formGroupName]="i">
                               <horizon [group]="myForm.controls.horizons.controls[i]"></horizon>
