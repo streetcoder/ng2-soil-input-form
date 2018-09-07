@@ -1,4 +1,5 @@
 export enum Texture {
+  '',
   HC,
   SiC,
   C,

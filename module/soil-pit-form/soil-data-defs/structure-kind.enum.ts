@@ -1,4 +1,5 @@
 export enum StructureKind {
+  '',
   'Granular',
   'Blocky',
   'Subangular Blocky',

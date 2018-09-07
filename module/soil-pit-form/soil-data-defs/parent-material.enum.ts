@@ -1,4 +1,5 @@
 export enum ParentMaterial {
+  '',
   'Residual',
   'Fluvial',
   'Glacial Till',

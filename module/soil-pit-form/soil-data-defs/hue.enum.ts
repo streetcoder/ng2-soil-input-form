@@ -1,4 +1,5 @@
 export enum Hue {
+  '',
   'GLEY 1',
   'GLEY 2',
   '2.5 YR',

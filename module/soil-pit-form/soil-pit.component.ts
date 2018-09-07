@@ -25,6 +25,7 @@ import {SurfexMod} from "./soil-data-defs/surfex-mod.enum";
 
           <div class="row">
               <!--title-->
+
               <div class="margin-20 col-xs-12">
                   <h2>Add soil pit</h2>
               </div>
@@ -436,8 +437,8 @@ years:any;
   initAddress() {
     return this._fb.group({
       layer: '',
-      designation: ['', Validators.required],
-      modifiers: ['', Validators.required],
+      designation: [''],
+      modifiers: [''],
       start: [''],
       end: [''],
       angularity: CoarseFragType.ANGULAR,

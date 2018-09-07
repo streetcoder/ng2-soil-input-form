@@ -1,4 +1,5 @@
 export enum Effervesence {
+  '',
   Weak,
   Moderate,
   Strong,

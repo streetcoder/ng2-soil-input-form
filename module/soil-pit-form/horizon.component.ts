@@ -23,7 +23,8 @@ import {ParentMaterial} from "./soil-data-defs/parent-material.enum";
               <select
                       class="form-control"
                       formControlName="layer">
-                  <option selected>I</option>
+                  <option selected></option>
+                  <option>I</option>
                   <option>II</option>
                   <option>III</option>
               </select>
@@ -185,8 +186,8 @@ export class HorizonComponent {
 
   private landform = '';
   private notes = '';
-  private value = [1, 2, 2.5, 3, 4, 5, 6, 7, 8];
-  private chroma = [1, 2, 3, 4, 5, 6, 7, 8];
+  private value = [null, 1, 2, 2.5, 3, 4, 5, 6, 7, 8];
+  private chroma = [null, 1, 2, 3, 4, 5, 6, 7, 8];
 
   private hue = EnumValues.getNames(Hue);
   private coarseFragmentAngularity = EnumValues.getNames(CoarseFragType);
