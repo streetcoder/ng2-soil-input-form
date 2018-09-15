@@ -30,9 +30,17 @@ import {SurfexMod} from "./soil-data-defs/surfex-mod.enum";
                   <h2>Add soil pit</h2>
               </div>
               <!--name-->
-              <div class="form-group col-xs-12 col-sm-12 col-md-4 col-lg-6">
+              <div class="form-group col-xs-12 col-sm-12 col-md-3 col-lg-2">
                   <label>Name/ID</label>
                   <input type="text" class="form-control" formControlName="name">
+              </div>
+              <div class="form-group col-xs-12 col-sm-12 col-md-3 col-lg-2">
+                  <label>Project</label>
+                  <input type="text" class="form-control" formControlName="project">
+              </div>
+              <div class="form-group col-xs-12 col-sm-12 col-md-3 col-lg-2">
+                  <label>Year</label>
+                  <input type="text" class="form-control" formControlName="years">
               </div>
 
               <div class="form-group col-xs-12 col-sm-4 col-md-3 col-lg-2">
@@ -113,7 +121,7 @@ import {SurfexMod} from "./soil-data-defs/surfex-mod.enum";
                 </select>
               </div>
 
-              <div class="form-group col-xs-12 col-md-3">
+              <div class="form-group col-xs-12 col-md-6">
                   <label>edition</label>
                   <select
                           class="form-control"
@@ -121,16 +129,6 @@ import {SurfexMod} from "./soil-data-defs/surfex-mod.enum";
                       <option value="2">2</option>
                       <option value="3" selected>3</option>
                   </select>
-              </div>
-
-              <div class="form-group col-xs-12 col-md-3">
-                  <label>Years</label>
-                  <select
-                        class="form-control"
-                        formControlName="years">
-                        <option *ngFor="let c of years" [value]="c.value">{{c.name}}</option>
-                </select>
-                  
               </div>
 
               <!--drainage-->
@@ -375,8 +373,7 @@ export class SoilPitFormComponent implements OnInit {
     {name: '-	NULL',           selected: false, value: '-'},
  ];
 
- 
-years:any;
+
   ngOnInit() {
     this.myForm = this._fb.group({
         name: '',
@@ -401,7 +398,8 @@ years:any;
         pitorder:'',
         ggroup:'',
         sgroup:'',
-        years: ''
+        years: '',
+        project: ''
     });
     
     this.addHorizon();
@@ -412,27 +410,8 @@ years:any;
     // })
 
     this.setCurrentLocation();
-
-    let currentYear = new Date().getFullYear(), years = [], startYear = 1980;
-        // startYear = startYear || 1980;
-
-    while ( startYear <= currentYear ) {
-            years.push(startYear++);
-    }
-    this.years = years;
     
   }
-
-//   getYears(startYear) {
-//         let currentYear = new Date().getFullYear(), years = [];
-//         startYear = startYear || 1980;
-
-//         while ( startYear <= currentYear ) {
-//                 years.push(startYear++);
-//         } 
-
-//         return years;
-//     }
 
   initAddress() {
     return this._fb.group({
