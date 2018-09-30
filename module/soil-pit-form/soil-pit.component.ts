@@ -420,7 +420,7 @@ export class SoilPitFormComponent implements OnInit {
       modifiers: [''],
       start: [''],
       end: [''],
-      angularity: CoarseFragType.ANGULAR,
+      angularity: '',
       cfpercent: '',
       lowerboundary: '',
       texture: '',
