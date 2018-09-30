@@ -68,9 +68,11 @@ import {ParentMaterial} from "./soil-data-defs/parent-material.enum";
               <select
                       class="form-control"
                       formControlName="angularity">
-                  <option *ngFor="let a of coarseFragmentAngularity" [value]="a">{{a}}</option>
+                  <option *ngFor="let a of coarseFragmentAngularity" [value]="a.value">{{a.name}}</option>
               </select>
           </div>
+
+          <!--<pre>{{coarseFragmentAngularity | json}}</pre>-->
 
           <div class="form-group col-xs-6 col-sm-4 col-md-3 col-lg-2">
               <label>c.frag percentage</label>
@@ -190,7 +192,8 @@ export class HorizonComponent {
   private chroma = [null, 1, 2, 3, 4, 5, 6, 7, 8];
 
   private hue = EnumValues.getNames(Hue);
-  private coarseFragmentAngularity = EnumValues.getNames(CoarseFragType);
+  // private coarseFragmentAngularity = EnumValues.getNames(CoarseFragType);
+  private coarseFragmentAngularity = EnumValues.getNamesAndValues(CoarseFragType);
   private designation = EnumValues.getNames(UppercaseDesignation);
   private lowerboundary = EnumValues.getNames(Boundary);
   private texture = EnumValues.getNames(Texture);
